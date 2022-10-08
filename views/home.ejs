@@ -2,43 +2,47 @@
 
 <head>
     <title>ToDo List <%= title %> Page</title>
+    <link rel="stylesheet" href="/styles/home.css">
 </head>
 
 <body>
 
-    <!-- Heading of our app -->
-    <header class="header">TODO App</header>
-
-    <hr />
-
-    <!-- TODO disciption -->
-    <div class="discription">
-        <input type="text" name="description">
-    </div>
-
-    <hr />
-
-    <!-- category and due date option -->
+    <!-- main container of our app -->
     <div class="container">
-        <div class="catagory"></div>
-        <div class="date"></div>
+
+        <!-- Heading of our app -->
+        <header class="header">TODO App</header>
+
+        <hr />
+
+        <!-- TODO disciption -->
+        <div class="discription">
+            <input type="text" name="description">
+        </div>
+
+        <hr />
+
+        <!-- category and due date option -->
+        <div class="fields">
+            <div class="catagory"></div>
+            <div class="date"></div>
+        </div>
+
+        <br />
+
+        <!-- add and delete task button -->
+        <div class="buttons">
+            <button class="task_button">ADD TASK</button>
+            <button class="delete_button">DELETE TASKS</button>
+        </div>
+
+        <br />
+
+        <!-- todo list contents -->
+        <div class="contents">
+
+        </div>
     </div>
-
-    <br />
-
-    <!-- add and delete task button -->
-    <div class="buttons">
-        <button class="task_button">ADD TASK</button>
-        <button class="delete_button">DELETE TASKS</button>
-    </div>
-
-    <br />
-
-    <!-- todo list contents -->
-    <div class="contents">
-
-    </div>
-
 </body>
 
 </html>

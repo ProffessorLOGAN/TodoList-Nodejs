@@ -1,0 +1,15 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: gray;
+}
+
+.container{
+    width:50%;
+    display: flex;
+    margin: auto;
+    border: 2px solid red;
+}
