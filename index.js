@@ -5,6 +5,10 @@ const app = express();
 //use express routes
 app.use('/', require('./routes/route'));
 
+//set up  and use Ejs as a view engine
+app.set('view engine','ejs')
+app.set('views','./views');
+
 
 
 
