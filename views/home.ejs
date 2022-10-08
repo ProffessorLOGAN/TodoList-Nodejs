@@ -2,47 +2,81 @@
 
 <head>
     <title>ToDo List <%= title %> Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
     <link rel="stylesheet" href="/styles/home.css">
 </head>
 
 <body>
+    <form class="todo-form" action="" method="post">
 
-    <!-- main container of our app -->
-    <div class="container">
+        <!-- heading of our todo app  -->
+        <h1 class="heading">TODO App</h1>
+        <br>
 
-        <!-- Heading of our app -->
-        <header class="header">TODO App</header>
+        <table>
 
-        <hr />
+            <!-- input description  -->
+            <tr>
+                <div class="description">
+                    <label for="desc">DESCRIPTION</label>
+                    <input type="text" class="no-outline" id="desc" name="description"
+                        placeholder="What do you need to do?" required>
+                </div>
+            </tr>
 
-        <!-- TODO disciption -->
-        <div class="discription">
-            <input type="text" name="description">
-        </div>
+            <!-- input category and date  -->
+            <tr>
 
-        <hr />
+                <td>
+                    <div class="category">
+                        <label class="cat-label" for="cate">CATEGORY</label>
+                        <select id="cate" class="optionselect no-outline">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="school">School</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
 
-        <!-- category and due date option -->
-        <div class="fields">
-            <div class="catagory"></div>
-            <div class="date"></div>
-        </div>
+                </td>
+                <td>
+                    <div class="due-date">
+                        <label for="date1" class="date-label">DUE DATE</label>
+                        <input type="date" class="no-outline" id="date1" name="date" required>
+                    </div>
 
-        <br />
+                </td>
 
-        <!-- add and delete task button -->
-        <div class="buttons">
-            <button class="task_button">ADD TASK</button>
-            <button class="delete_button">DELETE TASKS</button>
-        </div>
 
-        <br />
+            </tr>
 
-        <!-- todo list contents -->
-        <div class="contents">
+            <!-- add task and delete task button  -->
+            <tr>
+                <td class="btn">
 
-        </div>
-    </div>
+                    <button class="add-button"><img
+                            src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/plus-512.png"
+                            height="12px" width="12px" /> ADD
+                        TASK</button>
+
+                <td class="btn2">
+                    <button class="delete-button"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
+                            height="10px" width="10px" /> DELETE TASKS</button>
+                </td>
+
+
+
+
+                </td>
+            </tr>
+
+
+
+        </table>
+    </form>
+
 </body>
 
 </html>

@@ -1,15 +1,125 @@
-*{
-    margin:0;
-    padding:0;
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background-color: gray;
+body {
+  background-color: gray;
+  font-family: "DM Serif Display", serif;
 }
 
-.container{
-    width:50%;
-    display: flex;
-    margin: auto;
-    border: 2px solid red;
+/* form main body style */
+.todo-form {
+  width: 50%;
+  background-color: whitesmoke;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* todo app heading style  */
+.heading {
+  color: black;
+  text-decoration: underline;
+  margin: auto;
+  font-weight: 400;
+}
+
+/* description body style  */
+.description {
+  display: flex;
+  flex-direction: column;
+  height: 72px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.description > input {
+  height: inherit;
+}
+
+.description > label {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+input[type="text"] {
+  padding-left: 10px;
+}
+
+input[type="text"],
+textarea {
+  background-color: whitesmoke;
+  border: none;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+.category,
+.due-date {
+  height: 72px;
+}
+
+.category {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.due-date {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid gray;
+}
+
+.cat-label,
+.date-label {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.optionselect {
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  font-size: small;
+}
+
+.due-date > input {
+  padding-left: 10px;
+  font-size: large;
+  background-color: whitesmoke;
+}
+
+.add-button {
+  float: right;
+  margin-right: 5px;
+  padding: 10px 25px;
+  background-color: rgb(79, 79, 252);
+}
+
+.delete-button {
+  padding: 10px 20px;
+  float: left;
+  margin-left: 5px;
+ background-color: red;
+}
+
+.btn,
+.btn2 {
+  flex: 0.5;
+  height: 72px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
