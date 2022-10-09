@@ -130,6 +130,7 @@ input {
   margin: auto;
   background-color: whitesmoke;
   height: 72px;
+  flex-direction: column;
 }
 
 .ul-list {
@@ -137,6 +138,8 @@ input {
   display: flex;
   border-top: 1px solid gray;
   list-style-type: none;
+  flex-direction: column;
+  background-color: whitesmoke;
 }
 
 .contents {
@@ -144,6 +147,7 @@ input {
   display: flex;
   flex-direction: row;
   height: 70px;
+  border-bottom: 1px solid gray;
 }
 
 .data {
@@ -162,10 +166,22 @@ input {
 }
 
 .btn-list {
-  padding-top: 10px;
+ 
+border:1px solid gray;
+height: 85%;  
+flex:0.1;
+padding:0 15px;
+margin-top:5px;
+margin-right: 30px;
+text-align: center;
+background-color: blueviolet;
 }
 
 .btn-list > button {
-  padding: 15px 25px;
-  background-color: aqua;
+border:none;
+ width: 5vw;
+margin-top: 20px;
+background-color: blueviolet;
+font-size: large;
+font-weight: 500;
 }

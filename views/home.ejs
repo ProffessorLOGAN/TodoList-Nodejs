@@ -10,10 +10,12 @@
 </head>
 
 <body>
-    <form class="todo-form" action="/create-todo_list" method="post">
+    <form class="todo-form" action="/create-todo" method="post">
 
         <!-- heading of our todo app  -->
-        <h1 class="heading">TODO App</h1>
+        <h1 class="heading">
+            <%= title %>
+        </h1>
         <br>
 
         <table>
@@ -33,7 +35,7 @@
                 <td>
                     <div class="category">
                         <label class="cat-label" for="cate">CATEGORY</label>
-                        <select id="cate" class="optionselect no-outline">
+                        <select id="cate" name="category" class="optionselect no-outline">
                             <option value="personal">Personal</option>
                             <option value="work">Work</option>
                             <option value="school">School</option>
@@ -75,7 +77,7 @@
     <!-- todo list all data  -->
     <div class="todolists">
         <ul class="ul-list">
-            <% for(let i of contact_list) {%>
+            <% for (let i of todo_lists ){ %>
                 <li>
                     <div class="contents">
 
@@ -86,16 +88,16 @@
                         <div class="data">
 
                             <p>
-                                <%= i.description%>
+                                <%= i.description %>
                             </p>
                             <p><img src="">
-                                <%= i.date%>
+                                <%= i.date %>
                             </p>
                         </div>
 
                         <div class="btn-list">
-                            <button>
-                                <%= i.category%>
+                            <button class="no-outline">
+                                <%= i.category %>
                             </button>
                         </div>
                     </div>

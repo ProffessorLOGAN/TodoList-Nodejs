@@ -3,25 +3,48 @@ const path = require("path");
 const port = 8000;
 const app = express();
 
-// use MongoDB config 
+// use MongoDB config
 const db = require("./config/mongoose");
-
-
-//use express routes
-app.use('/', require('./routes/route'));
+const Todo = require("./models/todo");
 
 //set up  and use Ejs as a view engine
-app.set('view engine','ejs')
-app.set("views", path.join(__dirname, "views"))
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded());
 app.use(express.static("assets"));
 
 
-
-
-
 app.get("/", function (req, res) {
- res.send('<h1>Hello this is express server</h1>');
+ 
+  Todo.find({}, function (err, todoList) {
+    if (err) {
+      console.log("Error in fetching todo lists from db");
+      return;
+    }
+
+  return res.render("home", {
+    title: "TODO App",
+    todo_lists: todoList,
+  });
+});
+});
+
+app.post("/create-todo", function (req, res) {
+  Todo.create(
+    {
+      description: req.body.description,
+      category: req.body.category,
+      date: req.body.date,
+    },
+    function (err, newTodo) {
+      if (err) {
+        console.log("error in creating a todo list!!");
+        return;
+      }
+      console.log("created todo", newTodo);
+      return res.redirect("back");
+    }
+  );
 });
 
 app.listen(port, function (err) {

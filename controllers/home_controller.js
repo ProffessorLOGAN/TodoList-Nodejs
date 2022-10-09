@@ -1,6 +1,25 @@
+var todoList = [
+  {
+    description: "I Love waifus",
+    category: "personal",
+    date: "12 june 2000",
+  },
+  {
+    description: "I Love waifus",
+    category: "personal",
+    date: "12 june 2000",
+  },
+  {
+    description: "I Love waifus",
+    category: "personal",
+    date: "12 june 2000",
+  },
+];
+
 module.exports.home = function (req, res) {
   return res.render("home", {
-    title: "Home",
+    title: "TODO App",
+    todo_lists: todoList,
   });
 };
 
