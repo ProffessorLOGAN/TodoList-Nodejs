@@ -3,6 +3,10 @@ const path = require("path");
 const port = 8000;
 const app = express();
 
+// use MongoDB config 
+const db = require("./config/mongoose");
+
+
 //use express routes
 app.use('/', require('./routes/route'));
 
