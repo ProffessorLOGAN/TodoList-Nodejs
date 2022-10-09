@@ -1,14 +1,16 @@
 <html>
 
 <head>
-    <title>ToDo List <%= title %> Page</title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 
     <link rel="stylesheet" href="/styles/home.css">
 </head>
 
 <body>
-    <form class="todo-form" action="" method="post">
+    <form class="todo-form" action="/create-todo_list" method="post">
 
         <!-- heading of our todo app  -->
         <h1 class="heading">TODO App</h1>
@@ -57,26 +59,53 @@
                 <td class="btn">
 
                     <button class="add-button"><img
-                            src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/plus-512.png"
-                            height="12px" width="12px" /> ADD
+                            src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/plus-512.png" height="12px"
+                            width="12px" /> ADD
                         TASK</button>
 
                 <td class="btn2">
                     <button class="delete-button"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
                             height="10px" width="10px" /> DELETE TASKS</button>
                 </td>
-
-
-
-
                 </td>
             </tr>
 
-
-
         </table>
     </form>
+    <!-- todo list all data  -->
+    <div class="todolists">
+        <ul class="ul-list">
+            <% for(let i of contact_list) {%>
+                <li>
+                    <div class="contents">
 
+                        <div class="check-box">
+                            <input type="checkbox" id="check" name="check" value="check">
+                        </div>
+
+                        <div class="data">
+
+                            <p>
+                                <%= i.description%>
+                            </p>
+                            <p><img src="">
+                                <%= i.date%>
+                            </p>
+                        </div>
+
+                        <div class="btn-list">
+                            <button>
+                                <%= i.category%>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <%}%>
+        </ul>
+
+    </div>
+
+    <script type=" text/javascript" src="/js/script.js"></script>
 </body>
 
 </html>

@@ -113,7 +113,7 @@ input {
   padding: 10px 20px;
   float: left;
   margin-left: 5px;
- background-color: red;
+  background-color: red;
 }
 
 .btn,
@@ -121,5 +121,51 @@ input {
   flex: 0.5;
   height: 72px;
   border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+}
+
+/* todo data lists styles */
+.todolists {
+  width: 50%;
+  display: flex;
+  margin: auto;
+  background-color: whitesmoke;
+  height: 72px;
+}
+
+.ul-list {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid gray;
+  list-style-type: none;
+}
+
+.contents {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+}
+
+.data {
+  padding-right: 50px;
+  padding-left: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+  display: flex;
+  flex: 0.9;
+  flex-direction: column;
+}
+
+.check-box {
+  margin-top: 25px;
+  padding: 0 30px;
+}
+
+.btn-list {
+  padding-top: 10px;
+}
+
+.btn-list > button {
+  padding: 15px 25px;
+  background-color: aqua;
 }
