@@ -19,7 +19,7 @@ app.get("/", function (req, res) {
   Todo.find({}, function (err, todoList) {
     if (err) {
       console.log("Error in fetching todo lists from db");
-      return;
+      return res.redirect("back");
     }
 
   return res.render("home", {
@@ -45,6 +45,20 @@ app.post("/create-todo", function (req, res) {
       return res.redirect("back");
     }
   );
+});
+
+app.get("/delete-todo/", function (req, res) {
+  //get the id from query in the url
+  let id = req.query.id;
+
+  //find the contact in the databse using id and delete
+  Todo.findByIdAndDelete(id, function (err) {
+    if (err) {
+      console.log("error in deleting an object from databse");
+      return;
+    }
+    return res.redirect("back");
+  });
 });
 
 app.listen(port, function (err) {

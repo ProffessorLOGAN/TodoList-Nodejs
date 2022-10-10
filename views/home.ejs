@@ -5,7 +5,8 @@
         <%= title %>
     </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/home.css">
 </head>
 
@@ -13,9 +14,13 @@
     <form class="todo-form" action="/create-todo" method="post">
 
         <!-- heading of our todo app  -->
-        <h1 class="heading">
-            <%= title %>
-        </h1>
+        <div class="page-heading">
+            <img src="https://static.thenounproject.com/png/2038384-200.png">
+            <h1 class="heading">
+                <%= title %>
+            </h1>
+        </div>
+
         <br>
 
         <table>
@@ -25,7 +30,7 @@
                 <div class="description">
                     <label for="desc">DESCRIPTION</label>
                     <input type="text" class="no-outline" id="desc" name="description"
-                        placeholder="What do you need to do?" required>
+                        placeholder="What do you need to do?">
                 </div>
             </tr>
 
@@ -33,23 +38,25 @@
             <tr>
 
                 <td>
-                    <div class="category">
-                        <label class="cat-label" for="cate">CATEGORY</label>
-                        <select id="cate" name="category" class="optionselect no-outline">
-                            <option value="personal">Personal</option>
-                            <option value="work">Work</option>
-                            <option value="school">School</option>
-                            <option value="cleaning">Cleaning</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <div class="input-category">
+                        <div class="category">
+                            <label class="cat-label" for="cate">CATEGORY</label>
+                            <select id="cate" name="category" class="optionselect no-outline">
+                                <option value="personal">Personal</option>
+                                <option value="work">Work</option>
+                                <option value="school">School</option>
+                                <option value="cleaning">Cleaning</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+
+                        <div class="due-date">
+                            <label for="date1" class="date-label">DUE DATE</label>
+                            <input type="date" class="no-outline" id="date1" name="date">
+                        </div>
                     </div>
 
-                </td>
-                <td>
-                    <div class="due-date">
-                        <label for="date1" class="date-label">DUE DATE</label>
-                        <input type="date" class="no-outline" id="date1" name="date" required>
-                    </div>
 
                 </td>
 
@@ -58,56 +65,67 @@
 
             <!-- add task and delete task button  -->
             <tr>
-                <td class="btn">
+                <td>
 
-                    <button class="add-button"><img
-                            src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/plus-512.png" height="12px"
-                            width="12px" /> ADD
-                        TASK</button>
+                    <div class="btn">
+                        <div class="add-btn">
+                            <button type="submit" class="add-button"><img
+                                    src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/plus-512.png"
+                                    height="12px" width="12px" /> ADD
+                                TASK</button>
+                        </div>
 
-                <td class="btn2">
-                    <button class="delete-button"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
-                            height="10px" width="10px" /> DELETE TASKS</button>
+
+                    </div>
+
                 </td>
+
+            </tr>
+            <!-- all todo list of our app print here  -->
+            <tr>
+                <td>
+
+                    <ul class="content-list">
+                        <% for (let i of todo_lists ){ %>
+                            <li>
+                                <div class="contents">
+                                    <div class="btn-list">
+                                        <button class="no-outline">
+                                            <%= i.category %>
+                                        </button>
+                                    </div>
+
+                                    <div class="data">
+
+                                        <p class="text-description">
+                                            <%= i.description %>
+                                        </p>
+                                        <p class="text-date"><img
+                                                src="https://www.seekpng.com/png/full/763-7637205_blank-calendar-icon-png-white-transparent-calendar-icon.png">
+                                            <%= i.date %>
+                                        </p>
+                                    </div>
+
+                                    <div class="delete-btn">
+
+                                        <button class="delete-button"><img
+                                                src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
+                                                height="10px" width="10px" /> <a
+                                                href="/delete-todo/?id=<%=i._id%>">DELETE TASK</a></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <%}%>
+                    </ul>
+
+
                 </td>
             </tr>
 
         </table>
     </form>
-    <!-- todo list all data  -->
-    <div class="todolists">
-        <ul class="ul-list">
-            <% for (let i of todo_lists ){ %>
-                <li>
-                    <div class="contents">
 
-                        <div class="check-box">
-                            <input type="checkbox" id="check" name="check" value="check">
-                        </div>
 
-                        <div class="data">
-
-                            <p>
-                                <%= i.description %>
-                            </p>
-                            <p><img src="">
-                                <%= i.date %>
-                            </p>
-                        </div>
-
-                        <div class="btn-list">
-                            <button class="no-outline">
-                                <%= i.category %>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-                <%}%>
-        </ul>
-
-    </div>
-
-    <script type=" text/javascript" src="/js/script.js"></script>
 </body>
 
 </html>
