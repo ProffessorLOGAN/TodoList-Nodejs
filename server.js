@@ -2,10 +2,25 @@ const express = require("express");
 const path = require("path");
 const port = 8000;
 const app = express();
+const mongoose = require("mongoose");
+
+
+
 
 // use MongoDB config
-const db = require("./config/mongoose");
 const Todo = require("./models/todo");
+const { DB_URL } = require("./config");
+
+//Database connection
+mongoose.connect(DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('database connected successfully... ');
+});
 
 //set up  and use Ejs as a view engine
 app.set("view engine", "ejs");

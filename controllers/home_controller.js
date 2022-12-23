@@ -1,16 +1,16 @@
 var todoList = [
   {
-    description: "I Love waifus",
+    description: "I Love India",
     category: "personal",
     date: "12 june 2000",
   },
   {
-    description: "I Love waifus",
+    description: "I Love India",
     category: "personal",
     date: "12 june 2000",
   },
   {
-    description: "I Love waifus",
+    description: "I Love India",
     category: "personal",
     date: "12 june 2000",
   },
