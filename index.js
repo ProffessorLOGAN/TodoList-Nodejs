@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const port = 8000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const mongoose = require("mongoose");
 
@@ -76,10 +76,10 @@ app.get("/delete-todo/", function (req, res) {
   });
 });
 
-app.listen(port, function (err) {
+app.listen(PORT, function (err) {
   if (err) {
     console.log(`error in the running the server: ${err} `);
   }
 
-  console.log(`awesome!! My server is running in port ${port}`);
+  console.log(`awesome!! My server is running in port ${PORT}`);
 });
