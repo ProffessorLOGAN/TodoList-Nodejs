@@ -12,7 +12,7 @@ const Todo = require("./models/todo");
 const { DB_URL } = require("./config");
 
 //Database connection
-mongoose.connect(DB_URL, {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
