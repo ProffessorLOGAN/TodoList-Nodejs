@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const PORT = process.env.PORT || 3000;
 const app = express();
 const mongoose = require("mongoose");
 
@@ -9,10 +8,11 @@ const mongoose = require("mongoose");
 
 // use MongoDB config
 const Todo = require("./models/todo");
-const { DB_URL } = require("./config");
+const { DB_URL,PORT } = require("./config");
+const port = PORT || 3000;
 
 //Database connection
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -76,10 +76,10 @@ app.get("/delete-todo/", function (req, res) {
   });
 });
 
-app.listen(PORT, function (err) {
+app.listen(port, function (err) {
   if (err) {
     console.log(`error in the running the server: ${err} `);
   }
 
-  console.log(`awesome!! My server is running in port ${PORT}`);
+  console.log(`awesome!! My server is running in port ${port}`);
 });
