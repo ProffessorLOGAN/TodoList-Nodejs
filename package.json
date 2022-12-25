@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "gh-pages": "^4.0.0"
   }
 }
